@@ -356,7 +356,7 @@ func (g *Group) scanSubGroupHandler(realval reflect.Value, sfield *reflect.Struc
 		return true, err
 	}
 
-	subgroup := mtag.Get("group")
+	subgroup := mtag.Get("flags-group")
 
 	if len(subgroup) != 0 {
 		var ptrval reflect.Value

@@ -58,7 +58,7 @@ type Options struct {
 	Users map[string]string `long:"users" description:"User e-mail map" default:"system:system@example.org" default:"admin:admin@example.org"`
 
 	// Example of option group
-	Editor EditorOptions `group:"Editor Options"`
+	Editor EditorOptions `flag-group:"Editor Options"`
 
 	// Example of custom type Marshal/Unmarshal
 	Point Point `long:"point" description:"A x,y point" default:"1,2"`

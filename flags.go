@@ -172,7 +172,7 @@ There are currently three ways to specify option groups.
     1. Use NewNamedParser specifying the various option groups.
     2. Use AddGroup to add a group to an existing parser.
     3. Add a struct field to the top-level options annotated with the
-       group:"group-name" tag.
+       flag-group:"group-name" tag.
 
 
 

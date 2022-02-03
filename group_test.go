@@ -10,7 +10,7 @@ func TestGroupInline(t *testing.T) {
 
 		Group struct {
 			G bool `short:"g"`
-		} `group:"Grouped Options"`
+		} `flag-group:"Grouped Options"`
 	}{}
 
 	p, ret := assertParserSuccess(t, &opts, "-v", "-g")
@@ -86,8 +86,8 @@ func TestGroupNestedInline(t *testing.T) {
 
 			Nested struct {
 				N string `long:"n"`
-			} `group:"Nested Options"`
-		} `group:"Grouped Options"`
+			} `flag-group:"Nested Options"`
+		} `flag-group:"Grouped Options"`
 	}{}
 
 	p, ret := assertParserSuccess(t, &opts, "-v", "-g", "--n", "n", "rest")
@@ -121,8 +121,8 @@ func TestGroupNestedInlineNamespace(t *testing.T) {
 			Opt   string `long:"opt"`
 			Group struct {
 				Opt string `long:"opt"`
-			} `group:"Subsubgroup" namespace:"sap"`
-		} `group:"Subgroup" namespace:"sip"`
+			} `flag-group:"Subsubgroup" namespace:"sap"`
+		} `flag-group:"Subgroup" namespace:"sip"`
 	}{}
 
 	p, ret := assertParserSuccess(t, &opts, "--opt", "a", "--sip.opt", "b", "--sip.sap.opt", "c", "rest")
@@ -222,7 +222,7 @@ func TestFindOptionByLongFlagInSubGroup(t *testing.T) {
 	var opts struct {
 		Group struct {
 			Testing bool `long:"testing" description:"Testing"`
-		} `group:"sub-group"`
+		} `flag-group:"sub-group"`
 	}
 
 	p := NewParser(&opts, Default)
@@ -239,7 +239,7 @@ func TestFindOptionByShortFlagInSubGroup(t *testing.T) {
 	var opts struct {
 		Group struct {
 			Testing bool `short:"t" description:"Testing"`
-		} `group:"sub-group"`
+		} `flag-group:"sub-group"`
 	}
 
 	p := NewParser(&opts, Default)

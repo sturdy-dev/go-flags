@@ -311,11 +311,11 @@ func TestReadIni_flagEquivalent(t *testing.T) {
 
 		Group1 struct {
 			Opt2 bool `long:"opt2"`
-		} `group:"group1"`
+		} `flag-group:"group1"`
 
 		Group2 struct {
 			Opt3 bool `long:"opt3"`
-		} `group:"group2" namespace:"ns1"`
+		} `flag-group:"group2" namespace:"ns1"`
 
 		Cmd1 struct {
 			Opt4 bool `long:"opt4"`
@@ -324,11 +324,11 @@ func TestReadIni_flagEquivalent(t *testing.T) {
 			Group1 struct {
 				Opt6 bool `long:"opt6"`
 				Opt7 bool `long:"foo.opt7"`
-			} `group:"group1"`
+			} `flag-group:"group1"`
 
 			Group2 struct {
 				Opt8 bool `long:"opt8"`
-			} `group:"group2" namespace:"ns1"`
+			} `flag-group:"group2" namespace:"ns1"`
 		} `command:"cmd1"`
 	}
 
@@ -685,7 +685,7 @@ func TestIniCommands(t *testing.T) {
 
 			Other struct {
 				O string `short:"o" long:"other"`
-			} `group:"Other Options"`
+			} `flag-group:"Other Options"`
 		} `command:"add"`
 	}
 

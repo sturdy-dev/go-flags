@@ -255,7 +255,7 @@ type envDefaultOptions struct {
 	Time   time.Duration    `long:"t" default:"1m" env:"TEST_T"`
 	Map    map[string]int   `long:"m" default:"a:1" env:"TEST_M" env-delim:";"`
 	Slice  []int            `long:"s" default:"1" default:"2" env:"TEST_S"  env-delim:","`
-	Nested envNestedOptions `group:"nested" namespace:"nested" env-namespace:"NESTED"`
+	Nested envNestedOptions `flag-group:"nested" namespace:"nested" env-namespace:"NESTED"`
 }
 
 func TestEnvDefaults(t *testing.T) {

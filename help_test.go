@@ -34,16 +34,16 @@ type helpOptions struct {
 	Other struct {
 		StringSlice []string       `short:"s" default:"some" default:"value" description:"A slice of strings"`
 		IntMap      map[string]int `long:"intmap" default:"a:1" description:"A map from string to int" ini-name:"int-map"`
-	} `group:"Other Options"`
+	} `flag-group:"Other Options"`
 
 	HiddenGroup struct {
 		InsideHiddenGroup string `long:"inside-hidden-group" description:"Inside hidden group"`
 		Padder            bool   `long:"this-option-in-a-hidden-group-has-a-ridiculously-long-name"`
-	} `group:"Hidden group" hidden:"yes"`
+	} `flag-group:"Hidden group" hidden:"yes"`
 
 	GroupWithOnlyHiddenOptions struct {
 		SecretFlag bool `long:"secret" description:"Hidden flag in a non-hidden group" hidden:"yes"`
-	} `group:"Non-hidden group with only hidden options"`
+	} `flag-group:"Non-hidden group with only hidden options"`
 
 	Group struct {
 		Opt                  string `long:"opt" description:"This is a subgroup option"`
@@ -52,8 +52,8 @@ type helpOptions struct {
 
 		Group struct {
 			Opt string `long:"opt" description:"This is a subsubgroup option"`
-		} `group:"Subsubgroup" namespace:"sap"`
-	} `group:"Subgroup" namespace:"sip"`
+		} `flag-group:"Subsubgroup" namespace:"sap"`
+	} `flag-group:"Subgroup" namespace:"sip"`
 
 	Bommand struct {
 		Hidden bool `long:"hidden" description:"A hidden option" hidden:"yes"`

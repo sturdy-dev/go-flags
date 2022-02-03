@@ -126,7 +126,7 @@ type PointerGroup struct {
 
 func TestPointerGroup(t *testing.T) {
 	var opts = struct {
-		Group *PointerGroup `group:"Group Options"`
+		Group *PointerGroup `flag-group:"Group Options"`
 	}{}
 
 	ret := assertParseSuccess(t, &opts, "-v")
